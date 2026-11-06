@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<base target="_top">
+<title>Dashboard Admin | Grand Hotel</title>
+<style>
+:root{--navy:#142b40;--navy2:#203d55;--gold:#c9a45c;--gold2:#e3c780;--cream:#f7f4ed;--muted:#6c7780;--border:#e5dfd4;--green:#1c7547;--red:#a83232;--blue:#285d8f;--orange:#966018}*{box-sizing:border-box}body{margin:0;background:#f5f6f8;color:#24313b;font-family:Arial,sans-serif}button,input,select,textarea{font:inherit}.hidden{display:none!important}.layout{display:grid;grid-template-columns:245px minmax(0,1fr);min-height:100vh}.sidebar{background:var(--navy);color:white;padding:24px 16px;display:flex;flex-direction:column;gap:24px}.brand{font: bold 23px Georgia,serif;color:var(--gold2);padding:0 10px}.brand small{display:block;color:#d4dce2;font:12px Arial;margin-top:7px}.nav{display:grid;gap:7px}.nav button{border:0;background:transparent;color:#e1e8ed;text-align:left;padding:12px;border-radius:9px;cursor:pointer}.nav button:hover,.nav button.active{background:#ffffff18;color:var(--gold2)}.sidebottom{margin-top:auto;color:#b9c5ce;font-size:12px;line-height:1.5;padding:10px}.main{min-width:0;padding:28px clamp(16px,3vw,38px)}.top{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:24px}.top h1{margin:0;color:var(--navy);font:500 clamp(25px,3vw,34px) Georgia,serif}.muted{color:var(--muted);line-height:1.5}.btn{border:1px solid var(--gold);background:var(--navy);color:white;padding:10px 14px;border-radius:8px;font-weight:bold;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:7px}.btn.light{background:white;color:var(--navy)}.btn.gold{background:var(--gold);color:var(--navy)}.btn.danger{background:#fff;color:var(--red);border-color:#e3bcbc}.btn.small{padding:7px 10px;font-size:12px}.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:22px}.stat,.panel{background:#fff;border:1px solid var(--border);border-radius:14px;box-shadow:0 5px 18px #142b4008}.stat{padding:18px}.stat .label{color:var(--muted);font-size:13px}.stat strong{display:block;color:var(--navy);font-size:25px;margin:10px 0 4px}.stat small{color:var(--muted)}.panel{padding:20px;margin-bottom:18px}.panel h2{font:500 21px Georgia,serif;color:var(--navy);margin:0 0 7px}.panelhead{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:15px}.filters{display:flex;gap:9px;flex-wrap:wrap}.control{border:1px solid #d8dce0;border-radius:8px;background:white;padding:10px;min-width:0}.filters .control{min-width:150px}.tablewrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:700px}th,td{text-align:left;padding:12px 10px;border-bottom:1px solid #edf0f2;font-size:13px;vertical-align:middle}th{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.04em;background:#fbfbfa}td strong{color:var(--navy)}.badge{display:inline-block;border-radius:30px;padding:5px 9px;font-size:11px;font-weight:bold;background:#edf0f2;color:#44525d;white-space:nowrap}.badge.green{background:#e5f5eb;color:var(--green)}.badge.red{background:#fdeaea;color:var(--red)}.badge.blue{background:#e7f0fa;color:var(--blue)}.badge.orange{background:#fff1dc;color:var(--orange)}.roomgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.roomtile{border:1px solid var(--border);border-radius:12px;background:#fff;padding:15px}.roomtile h3{font-size:15px;color:var(--navy);margin:0 0 7px}.roomtile p{font-size:12px;color:var(--muted);margin:6px 0}.formgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.field label{display:block;font-size:13px;font-weight:bold;margin-bottom:6px}.field input,.field select,.field textarea{width:100%;border:1px solid #d8dce0;border-radius:8px;padding:11px;background:white}.field textarea{min-height:80px;resize:vertical}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}.notice{padding:12px;border-radius:9px;background:#fff5dd;color:#765517;font-size:13px;line-height:1.5;margin-bottom:16px}.empty{padding:24px;text-align:center;color:var(--muted)}.loginwrap{max-width:430px;margin:7vh auto;padding:20px}.login{background:#fff;padding:28px;border:1px solid var(--border);border-radius:18px;box-shadow:0 15px 40px #142b4010}.login h1{text-align:center;color:var(--navy);font:500 30px Georgia,serif}.login .brand{text-align:center;color:var(--navy);padding:0}.login .field{margin:15px 0}.login .btn{width:100%;margin-top:8px}.feedback{min-height:18px;font-size:13px;color:var(--red)}.mobiletop{display:none}.section{display:none}.section.active{display:block}.subtle{font-size:12px;color:var(--muted)}.split{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}.money{font-size:25px;color:var(--navy);font-weight:bold}
+@media(max-width:1000px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.roomgrid{grid-template-columns:repeat(3,minmax(0,1fr))}.layout{grid-template-columns:205px minmax(0,1fr)}.split{grid-template-columns:1fr}}
+@media(max-width:700px){.layout{display:block}.sidebar{padding:14px;gap:12px}.brand{padding:4px}.nav{display:flex;overflow:auto;gap:5px;padding-bottom:3px}.nav button{white-space:nowrap;padding:10px;font-size:12px}.sidebottom{display:none}.main{padding:18px 12px}.top{align-items:flex-start}.top .btn{font-size:12px}.cards{gap:9px}.stat{padding:13px}.stat strong{font-size:21px}.panel{padding:14px}.roomgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.formgrid{grid-template-columns:1fr}.loginwrap{margin:3vh auto}.top h1{font-size:26px}}
+
+.toast{position:fixed;right:18px;bottom:18px;max-width:min(380px,calc(100% - 36px));background:var(--navy);color:#fff;padding:12px 16px;border-radius:10px;font-size:13px;line-height:1.45;box-shadow:0 10px 30px #0004;z-index:50;opacity:0;pointer-events:none;transform:translateY(8px);transition:.2s}
+.toast.show{opacity:1;transform:none}.toast.err{background:var(--red)}
+dialog{border:0;border-radius:16px;padding:0;width:min(560px,calc(100% - 28px));box-shadow:0 20px 60px #0006;color:#24313b}
+dialog::backdrop{background:#142b4099}
+.dlg{padding:22px}.dlg h2{margin:0 0 4px;font:500 22px Georgia,serif;color:var(--navy)}
+.dlg .kv{display:grid;grid-template-columns:130px 1fr;gap:6px 10px;font-size:13px;margin:14px 0}
+.dlg .kv span{color:var(--muted)}.dlg .kv b{color:var(--navy);overflow-wrap:anywhere}
+.dlg img.proof{max-width:100%;max-height:60vh;display:block;margin:12px auto;border-radius:10px;border:1px solid var(--border)}
+.check{display:flex;gap:8px;align-items:center;font-size:13px}.check input{width:auto}
+.loading{position:fixed;inset:0;background:#f5f6f8cc;display:grid;place-items:center;z-index:40;font-weight:bold;color:var(--navy)}
+.field{margin-bottom:12px}
+.btn[disabled]{opacity:.55;cursor:not-allowed}
+</style></head>
+<body>
+<section id="loginScreen" class="loginwrap"><div class="login"><div class="brand">♛ GRAND HOTEL<small style="color:#66727d">ADMINISTRATION PORTAL</small></div><h1>Login Admin</h1><p class="muted" style="text-align:center">Masuk untuk mengelola pemesanan dan informasi hotel.</p><form id="loginForm"><div class="field"><label for="username">Username</label><input class="control" id="username" autocomplete="username" required placeholder="Username admin"></div><div class="field"><label for="password">Password</label><input class="control" id="password" type="password" autocomplete="current-password" required placeholder="Password admin"></div><button class="btn" type="submit" id="loginBtn">Masuk Dashboard →</button><p id="loginFeedback" class="feedback" role="alert"></p></form><div class="notice">Login diverifikasi di server. Akun awal dibuat saat <b>setup()</b> dijalankan; lihat password sementara di <i>Log eksekusi</i> Apps Script.</div><p style="text-align:center;margin:14px 0 0"><a href="<?= baseUrl ?>" target="_top" style="color:var(--blue);font-size:13px">← Kembali ke website</a></p></div></section>
+<div id="loading" class="loading hidden">Memuat data…</div>
+<div id="app" class="layout hidden"><aside class="sidebar"><div class="brand">♛ GRAND HOTEL<small>ADMIN PANEL</small></div><nav class="nav" id="nav"><button class="active" data-page="overview">▦　Dashboard</button><button data-page="bookings">▤　Kelola Booking</button><button data-page="payments">▣　Pembayaran</button><button data-page="rooms">▥　Ketersediaan Kamar</button><button data-page="roomsettings">✎　Kelola Data Kamar</button><button data-page="history">◷　Riwayat Booking</button><button data-page="settings">⚙　Pengaturan</button></nav><div class="sidebottom">Grand Hotel<br>Login sebagai <b id="whoami">-</b><br>Terhubung ke Google Sheets</div></aside>
+<main class="main"><header class="top"><div><h1 id="pageTitle">Dashboard</h1><p class="muted" id="pageSubtitle">Ringkasan aktivitas pemesanan hotel.</p></div><div class="actions" style="margin:0"><button class="btn light" id="refreshBtn" type="button">↻ Muat ulang</button><a class="btn light" href="<?= baseUrl ?>" target="_top">← Website</a><button class="btn" id="logout">Keluar</button></div></header>
+<div class="notice hidden" id="mustChangeNotice">Anda masih memakai <b>password sementara</b>. Segera ganti di menu <b>Pengaturan → Pengaturan Admin</b>.</div>
+<section id="page-overview" class="section active"><div class="cards"><div class="stat"><span class="label">Total Booking</span><strong id="statBookings">0</strong><small>Semua pemesanan</small></div><div class="stat"><span class="label">Menunggu Pembayaran</span><strong id="statUnpaid">0</strong><small>Belum transfer</small></div><div class="stat"><span class="label">Menunggu Verifikasi</span><strong id="statReview">0</strong><small>Bukti perlu diperiksa</small></div><div class="stat"><span class="label">Pendapatan Terverifikasi</span><strong id="statRevenue">Rp0</strong><small>Hanya pembayaran lunas (tanpa yang dibatalkan)</small></div></div><div class="split"><div class="panel"><div class="panelhead"><div><h2>Booking Terbaru</h2><span class="subtle">Daftar transaksi terakhir</span></div><button class="btn light small" data-go="bookings">Lihat semua</button></div><div class="tablewrap"><table><thead><tr><th>Kode</th><th>Tamu</th><th>Tanggal</th><th>Status</th></tr></thead><tbody id="recentRows"></tbody></table></div></div><div class="panel"><h2>Ringkasan Kamar</h2><p class="muted">Status hari ini berdasarkan data kamar dan booking terkonfirmasi.</p><div id="roomSummary"></div></div></div></section>
+<section id="page-bookings" class="section"><div class="panel"><div class="panelhead"><div><h2>Kelola Booking</h2><span class="subtle">Lihat dan perbarui status pemesanan</span></div><div class="filters"><input id="bookingSearch" class="control" placeholder="Cari kode/nama"><select id="bookingFilter" class="control"><option value="all">Semua status</option><option>Menunggu Pembayaran</option><option>Menunggu Verifikasi</option><option>Dikonfirmasi</option><option>Dibatalkan</option><option>Selesai</option></select><button class="btn light small" id="addManualBooking">+ Booking manual</button></div></div><div class="tablewrap"><table><thead><tr><th>Kode</th><th>Tamu</th><th>Kamar</th><th>Menginap</th><th>Total</th><th>Pembayaran</th><th>Booking</th><th>Aksi</th></tr></thead><tbody id="bookingRows"></tbody></table></div><div id="bookingEmpty" class="empty hidden">Belum ada booking.</div></div></section>
+<section id="page-payments" class="section"><div class="panel"><div class="panelhead"><div><h2>Verifikasi Pembayaran</h2><span class="subtle">Periksa bukti dan cocokkan dengan mutasi rekening</span></div><select id="paymentFilter" class="control"><option value="all">Semua pembayaran</option><option>Menunggu Verifikasi</option><option>Lunas</option><option>Ditolak</option><option>Belum Bayar</option></select></div><div class="tablewrap"><table><thead><tr><th>Kode Booking</th><th>Tamu</th><th>Bank</th><th>Tagihan</th><th>Bukti</th><th>Status</th><th>Aksi</th></tr></thead><tbody id="paymentRows"></tbody></table></div><div id="paymentEmpty" class="empty hidden">Belum ada pembayaran.</div></div></section>
+<section id="page-rooms" class="section"><div class="panel"><div class="panelhead"><div><h2>Status Kamar</h2><span class="subtle">Status operasional kamar hari ini</span></div><div class="filters"><span class="badge green">Tersedia</span><span class="badge blue">Booking</span><span class="badge red">Terisi</span><span class="badge orange">Perawatan</span></div></div><div id="roomGrid" class="roomgrid"></div></div></section>
+<section id="page-roomsettings" class="section"><div class="panel"><h2>Kelola Data Kamar</h2><p class="muted">Edit tipe, harga, kapasitas, dan status kamar. Perubahan langsung tersimpan di Google Sheets dan dipakai website tamu.</p><div class="formgrid"><div class="field"><label for="editRoom">Pilih kamar</label><select id="editRoom" class="control"></select></div><div class="field"><label for="editName">Nama kamar</label><input id="editName" class="control"></div><div class="field"><label for="editType">Tipe kamar</label><select id="editType" class="control"><option>Standard Room</option><option>Deluxe Room</option><option>Family Room</option></select></div><div class="field"><label for="editPrice">Harga per malam (Rp)</label><input id="editPrice" class="control" type="number" min="0"></div><div class="field"><label for="editCapacity">Kapasitas tamu</label><input id="editCapacity" class="control" type="number" min="1"></div><div class="field"><label for="editStatus">Status operasional</label><select id="editStatus" class="control"><option>Tersedia</option><option>Terisi</option><option>Perawatan</option></select></div><div class="field" style="grid-column:1/-1"><label for="editFacilities">Fasilitas</label><input id="editFacilities" class="control" placeholder="AC, Wi-Fi, TV"></div></div><div class="actions"><button id="saveRoom" class="btn">Simpan Data Kamar</button><button id="resetRooms" class="btn light">Reset ke Data Awal</button></div><p id="roomFeedback" class="muted"></p></div></section>
+<section id="page-history" class="section"><div class="panel"><div class="panelhead"><div><h2>Riwayat Booking</h2><span class="subtle">Booking selesai atau dibatalkan</span></div><button class="btn light small" id="exportHistory">Unduh CSV</button></div><div class="tablewrap"><table><thead><tr><th>Kode</th><th>Tamu</th><th>Kamar</th><th>Tanggal</th><th>Total</th><th>Status</th></tr></thead><tbody id="historyRows"></tbody></table></div><div id="historyEmpty" class="empty hidden">Belum ada riwayat booking.</div></div></section>
+<section id="page-settings" class="section"><div class="split"><div class="panel"><h2>Pengaturan Pembayaran</h2><p class="muted">Isi dengan rekening BCA resmi milik hotel. Rekening ini ditampilkan kepada tamu setelah booking dibuat.</p><div class="field"><label for="bankName">Bank</label><input id="bankName" class="control" value="BCA"></div><div class="field"><label for="accountNumber">Nomor rekening</label><input id="accountNumber" class="control" placeholder="Isi nomor rekening resmi"></div><div class="field"><label for="accountName">Nama pemilik rekening</label><input id="accountName" class="control" placeholder="Nama sesuai rekening"></div><div class="field"><label for="deadline">Batas waktu pembayaran (jam)</label><select id="deadline" class="control"><option value="12">12 jam</option><option value="24" selected>24 jam</option><option value="48">48 jam</option></select></div><button id="saveSettings" class="btn">Simpan Pengaturan</button><p id="settingsFeedback" class="muted"></p></div><div class="panel"><h2>Pengaturan Admin</h2><p class="muted">Ganti username/password. Password disimpan sebagai hash di server.</p><div class="field"><label for="curPassword">Password saat ini</label><input id="curPassword" class="control" type="password" autocomplete="current-password"></div><div class="field"><label for="newUsername">Username baru <span class="subtle">(kosongkan jika tidak diganti)</span></label><input id="newUsername" class="control" autocomplete="username" placeholder="Username baru"></div><div class="field"><label for="newPassword">Password baru</label><input id="newPassword" class="control" type="password" autocomplete="new-password" placeholder="Minimal 8 karakter, huruf + angka"></div><button id="saveAdmin" class="btn">Simpan Akun</button><p id="adminFeedback" class="muted"></p></div></div></section>
+</main></div>
+
+<dialog id="bookingDialog"><div class="dlg"><h2 id="bdTitle">Booking</h2><div id="bdBody"></div>
+<div class="field"><label for="bdStatus">Ubah status booking</label><select id="bdStatus" class="control"></select><p class="subtle" style="margin:6px 0 0">Konfirmasi hanya setelah pembayaran Lunas. Booking Dibatalkan/Selesai tidak dapat diubah lagi.</p></div>
+<div class="actions"><button class="btn" id="bdSave">Simpan Status</button><button class="btn light" id="bdProof" type="button">Lihat Bukti</button><button class="btn light" id="bdClose" type="button">Tutup</button></div></div></dialog>
+
+<dialog id="proofDialog"><div class="dlg"><h2>Bukti Transfer</h2><p class="subtle" id="proofMeta">Memuat…</p><img class="proof hidden" id="proofImg" alt="Bukti transfer"><div class="actions"><button class="btn light" id="proofClose" type="button">Tutup</button></div></div></dialog>
+
+<dialog id="manualDialog"><form class="dlg" id="manualForm"><h2>Booking Manual</h2><p class="muted" style="margin:0 0 12px">Untuk pemesanan lewat telepon/WhatsApp atau tamu langsung datang. Sistem memilih kamar kosong otomatis.</p>
+<div class="formgrid"><div class="field"><label for="mName">Nama tamu</label><input class="control" id="mName" required maxlength="80"></div><div class="field"><label for="mPhone">Nomor telepon/WhatsApp</label><input class="control" id="mPhone" type="tel" required></div>
+<div class="field"><label for="mType">Tipe kamar</label><select class="control" id="mType"></select></div><div class="field"><label for="mGuests">Jumlah tamu</label><input class="control" id="mGuests" type="number" min="1" max="10" value="2" required></div>
+<div class="field"><label for="mIn">Check-in</label><input class="control" id="mIn" type="date" required></div><div class="field"><label for="mOut">Check-out</label><input class="control" id="mOut" type="date" required></div></div>
+<label class="check"><input type="checkbox" id="mPaid"> Sudah dibayar (tandai Lunas &amp; Dikonfirmasi)</label>
+<p class="feedback" id="manualFeedback" role="alert"></p>
+<div class="actions"><button class="btn" type="submit" id="manualSave">Buat Booking</button><button class="btn light" type="button" id="manualCancel">Batal</button></div></form></dialog>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script>
+
+const STATUS_BOOKING=['Menunggu Pembayaran','Menunggu Verifikasi','Dikonfirmasi','Dibatalkan','Selesai'];
+let db={rooms:[],bookings:[],settings:{},user:'',mustChange:false,today:''};
+let token=null;
+try{token=sessionStorage.getItem('ghAdminToken')}catch(e){}
+const $=id=>document.getElementById(id);
+
+// ---------- Komunikasi dengan Code.gs ----------
+function call(fn,...args){return new Promise((resolve,reject)=>{
+  google.script.run
+    .withSuccessHandler(r=>{if(r&&r.ok)resolve(r.data);else{const e=new Error((r&&r.error)||'Permintaan gagal');e.code=r&&r.code;reject(e)}})
+    .withFailureHandler(e=>reject(new Error((e&&e.message)||'Koneksi ke server gagal')))
+    [fn](...args);
+})}
+function authed(fn,...args){return call(fn,token,...args).catch(e=>{if(e.code==='AUTH'){toLogin('Sesi berakhir. Silakan login ulang.')}throw e})}
+let toastTimer;
+function toast(msg,isErr){const t=$('toast');t.textContent=msg;t.className='toast show'+(isErr?' err':'');clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.className='toast',isErr?5000:3000)}
+async function run(btn,promiseFn,okMsg){
+  if(btn)btn.disabled=true;
+  try{const r=await promiseFn();if(okMsg)toast(okMsg);return r}
+  catch(e){toast(e.message,true);return null}
+  finally{if(btn)btn.disabled=false}
+}
+function applySnapshot(s){if(s&&s.snapshot)s=s.snapshot;db=s;renderAll()}
+
+// ---------- Helpers tampilan ----------
+function money(n){return new Intl.NumberFormat('id-ID',{style:'currency',currency:'IDR',maximumFractionDigits:0}).format(Number(n)||0)}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function statusClass(s){return s==='Lunas'||s==='Dikonfirmasi'||s==='Selesai'||s==='Tersedia'?'green':s==='Ditolak'||s==='Dibatalkan'||s==='Terisi'?'red':s==='Menunggu Verifikasi'||s==='Booking'?'blue':s==='Perawatan'?'orange':''}
+function badge(s){return `<span class="badge ${statusClass(s)}">${esc(s)}</span>`}
+function fmtDate(d){return d||'-'}
+
+// ---------- Login / logout ----------
+function toLogin(msg){token=null;try{sessionStorage.removeItem('ghAdminToken')}catch(e){}$('app').classList.add('hidden');$('loading').classList.add('hidden');$('loginScreen').classList.remove('hidden');$('password').value='';$('loginFeedback').textContent=msg||''}
+function showApp(){$('loginScreen').classList.add('hidden');$('app').classList.remove('hidden')}
+$('loginForm').addEventListener('submit',async e=>{
+  e.preventDefault();$('loginFeedback').textContent='';
+  const btn=$('loginBtn');btn.disabled=true;btn.textContent='Memeriksa…';
+  try{
+    const r=await call('adminLogin',$('username').value,$('password').value);
+    token=r.token;try{sessionStorage.setItem('ghAdminToken',token)}catch(e){}
+    $('password').value='';await refresh();
+  }catch(err){$('loginFeedback').textContent=err.message}
+  finally{btn.disabled=false;btn.textContent='Masuk Dashboard →'}
+});
+$('logout').addEventListener('click',async()=>{try{await call('adminLogout',token)}catch(e){}toLogin('')});
+async function refresh(){
+  $('loading').classList.remove('hidden');
+  try{const s=await authed('adminGetAll');applySnapshot(s);showApp()}
+  catch(e){if(e.code!=='AUTH')toLogin(e.message)}
+  finally{$('loading').classList.add('hidden')}
+}
+$('refreshBtn').addEventListener('click',()=>run($('refreshBtn'),async()=>{applySnapshot(await authed('adminGetAll'))},'Data diperbarui.'));
+if(token)refresh();
+
+// ---------- Navigasi ----------
+document.querySelectorAll('[data-page]').forEach(b=>b.addEventListener('click',()=>showPage(b.dataset.page)));
+document.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',()=>showPage(b.dataset.go)));
+const TITLES={overview:['Dashboard','Ringkasan aktivitas pemesanan hotel.'],bookings:['Kelola Booking','Lihat dan perbarui status pemesanan.'],payments:['Pembayaran','Periksa bukti transfer dan status pembayaran.'],rooms:['Ketersediaan Kamar','Pantau status operasional kamar.'],roomsettings:['Kelola Data Kamar','Atur harga, tipe, kapasitas, dan fasilitas.'],history:['Riwayat Booking','Pemesanan selesai atau dibatalkan.'],settings:['Pengaturan','Atur rekening pembayaran dan akun admin.']};
+function showPage(name){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  $('page-'+name).classList.add('active');
+  document.querySelectorAll('[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===name));
+  $('pageTitle').textContent=TITLES[name][0];$('pageSubtitle').textContent=TITLES[name][1];
+}
+
+// ---------- Render ----------
+function renderAll(){renderStats();renderBookings();renderPayments();renderRoomGrid();renderRoomForm();renderHistory();renderRecent();loadSettingsForm();
+  $('whoami').textContent=db.user;$('mustChangeNotice').classList.toggle('hidden',!db.mustChange)}
+function renderStats(){
+  const b=db.bookings;
+  $('statBookings').textContent=b.length;
+  $('statUnpaid').textContent=b.filter(x=>x.status==='Menunggu Pembayaran'&&x.payment==='Belum Bayar').length;
+  $('statReview').textContent=b.filter(x=>x.payment==='Menunggu Verifikasi').length;
+  $('statRevenue').textContent=money(b.filter(x=>x.payment==='Lunas'&&x.status!=='Dibatalkan').reduce((s,x)=>s+x.total,0));
+  $('roomSummary').innerHTML=['Tersedia','Booking','Terisi','Perawatan'].map(st=>`<p>${badge(st)} <b style="float:right">${db.rooms.filter(r=>r.displayStatus===st).length}</b></p>`).join('');
+}
+function renderRecent(){
+  const rows=[...db.bookings].slice(-5).reverse();
+  $('recentRows').innerHTML=rows.map(b=>`<tr><td><strong>${esc(b.code)}</strong></td><td>${esc(b.name)}</td><td>${esc(b.checkin)} – ${esc(b.checkout)}</td><td>${badge(b.status)}</td></tr>`).join('')||'<tr><td colspan="4" class="empty">Belum ada booking.</td></tr>';
+}
+function renderBookings(){
+  const q=($('bookingSearch').value||'').toLowerCase(),f=$('bookingFilter').value;
+  const arr=[...db.bookings].reverse().filter(b=>(b.code+' '+b.name).toLowerCase().includes(q)&&(f==='all'||b.status===f));
+  $('bookingRows').innerHTML=arr.map(b=>`<tr><td><strong>${esc(b.code)}</strong><br><span class="subtle">${esc(b.source)}</span></td><td>${esc(b.name)}<br><span class="subtle">${esc(b.phone)}</span></td><td>${esc(b.room)}<br><span class="subtle">${esc(b.type)}</span></td><td>${esc(b.checkin)}<br>${esc(b.checkout)}</td><td>${money(b.total)}</td><td>${badge(b.payment)}</td><td>${badge(b.status)}</td><td><button class="btn light small" data-act="manage" data-code="${esc(b.code)}">Kelola</button></td></tr>`).join('');
+  $('bookingEmpty').classList.toggle('hidden',arr.length>0);
+}
+function renderPayments(){
+  const f=$('paymentFilter').value;
+  const arr=[...db.bookings].reverse().filter(b=>f==='all'||b.payment===f);
+  $('paymentRows').innerHTML=arr.map(b=>{
+    const c=esc(b.code);
+    let act='—';
+    if(b.payment==='Menunggu Verifikasi')act=`<button class="btn small" data-act="verify" data-code="${c}">Verifikasi</button> <button class="btn danger small" data-act="reject" data-code="${c}">Tolak</button>`;
+    return `<tr><td><strong>${c}</strong></td><td>${esc(b.name)}</td><td>${esc(db.settings.bank||'BCA')}</td><td>${money(b.total)}</td><td>${b.hasProof?`<button class="btn light small" data-act="proof" data-code="${c}">Lihat bukti</button>`:'<span class="subtle">Belum ada file</span>'}</td><td>${badge(b.payment)}${b.payment==='Ditolak'&&b.note?`<br><span class="subtle">${esc(b.note)}</span>`:''}</td><td>${act}</td></tr>`}).join('');
+  $('paymentEmpty').classList.toggle('hidden',arr.length>0);
+}
+function renderRoomGrid(){
+  $('roomGrid').innerHTML=db.rooms.map(r=>`<div class="roomtile"><h3>${esc(r.name)}</h3>${badge(r.displayStatus)}<p>${esc(r.type)}</p><p>${money(r.price)} / malam</p><p>Kapasitas ${r.capacity} tamu</p><button class="btn light small" data-act="room" data-id="${esc(r.id)}">Edit kamar</button></div>`).join('');
+}
+function renderRoomForm(){
+  const sel=$('editRoom'),current=sel.value;
+  sel.innerHTML=db.rooms.map(r=>`<option value="${esc(r.id)}">${esc(r.id)} — ${esc(r.name)}</option>`).join('');
+  if(db.rooms.some(r=>r.id===current))sel.value=current;
+  fillRoomForm();
+}
+function fillRoomForm(){
+  const r=db.rooms.find(x=>x.id===$('editRoom').value)||db.rooms[0];if(!r)return;
+  $('editName').value=r.name;$('editType').value=r.type;$('editPrice').value=r.price;$('editCapacity').value=r.capacity;$('editStatus').value=r.status;$('editFacilities').value=r.facilities;
+}
+function renderHistory(){
+  const arr=[...db.bookings].reverse().filter(b=>['Selesai','Dibatalkan'].includes(b.status));
+  $('historyRows').innerHTML=arr.map(b=>`<tr><td>${esc(b.code)}</td><td>${esc(b.name)}</td><td>${esc(b.room)}</td><td>${esc(b.checkin)} – ${esc(b.checkout)}</td><td>${money(b.total)}</td><td>${badge(b.status)}</td></tr>`).join('');
+  $('historyEmpty').classList.toggle('hidden',arr.length>0);
+}
+function loadSettingsForm(){
+  const s=db.settings||{};
+  $('bankName').value=s.bank||'BCA';$('accountNumber').value=s.accountNumber||'';$('accountName').value=s.accountName||'';$('deadline').value=String(s.deadline||'24');
+}
+
+// ---------- Aksi tabel (delegasi event) ----------
+document.addEventListener('click',e=>{
+  const t=e.target.closest('[data-act]');if(!t)return;
+  const code=t.dataset.code,act=t.dataset.act;
+  if(act==='manage')openBooking(code);
+  else if(act==='verify')verifyPayment(code,t);
+  else if(act==='reject')rejectPayment(code,t);
+  else if(act==='proof')showProof(code);
+  else if(act==='room'){$('editRoom').value=t.dataset.id;fillRoomForm();showPage('roomsettings')}
+});
+async function verifyPayment(code,btn){
+  if(!confirm('Pastikan bukti sudah dicocokkan dengan mutasi rekening. Tandai pembayaran '+code+' LUNAS?'))return;
+  const r=await run(btn,()=>authed('adminVerifyPayment',code),'Pembayaran diverifikasi.');if(r)applySnapshot(r);
+}
+async function rejectPayment(code,btn){
+  const reason=prompt('Alasan penolakan bukti transfer (akan dilihat tamu):');if(reason===null)return;
+  const r=await run(btn,()=>authed('adminRejectPayment',code,reason),'Pembayaran ditolak.');if(r)applySnapshot(r);
+}
+async function showProof(code){
+  const d=$('proofDialog');$('proofImg').classList.add('hidden');$('proofMeta').textContent='Memuat…';
+  if(!d.open)d.showModal();
+  try{const p=await authed('adminGetProof',code);$('proofMeta').textContent=p.name+' • diunggah '+(p.uploadedAt||'').replace('T',' ').slice(0,16);$('proofImg').src=p.dataUrl;$('proofImg').classList.remove('hidden')}
+  catch(e){$('proofMeta').textContent=e.message}
+}
+$('proofClose').addEventListener('click',()=>$('proofDialog').close());
+
+// ---------- Dialog kelola booking ----------
+let currentCode=null;
+function openBooking(code){
+  const b=db.bookings.find(x=>x.code===code);if(!b)return;currentCode=code;
+  $('bdTitle').textContent='Booking '+b.code;
+  const kv=[['Tamu',b.name],['Telepon',b.phone],['Email',b.email||'-'],['Kamar',b.room+' ('+b.type+')'],['Check-in',b.checkin],['Check-out',b.checkout],['Malam / tamu',b.nights+' malam / '+b.guests+' tamu'],['Total',money(b.total)],['Pembayaran',b.payment],['Status',b.status],['Sumber',b.source],['Batas bayar',b.expiresAt?new Date(b.expiresAt).toLocaleString('id-ID',{dateStyle:'medium',timeStyle:'short',timeZone:'Asia/Jakarta'})+' WIB':'-'],['Catatan',b.note||'-']];
+  $('bdBody').innerHTML='<div class="kv">'+kv.map(([k,v])=>`<span>${esc(k)}</span><b>${esc(v)}</b>`).join('')+'</div>';
+  const final=['Dibatalkan','Selesai'].includes(b.status);
+  const opts=final?[b.status]:[b.status,...['Dikonfirmasi','Selesai','Dibatalkan'].filter(s=>s!==b.status)];
+  $('bdStatus').innerHTML=opts.map(s=>`<option>${esc(s)}</option>`).join('');
+  $('bdStatus').disabled=final;$('bdSave').disabled=final;
+  $('bdProof').classList.toggle('hidden',!b.hasProof);
+  $('bookingDialog').showModal();
+}
+$('bdClose').addEventListener('click',()=>$('bookingDialog').close());
+$('bdProof').addEventListener('click',()=>showProof(currentCode));
+$('bdSave').addEventListener('click',async()=>{
+  const b=db.bookings.find(x=>x.code===currentCode);const st=$('bdStatus').value;
+  if(!b||st===b.status){$('bookingDialog').close();return}
+  if(st==='Dibatalkan'&&!confirm('Batalkan booking '+b.code+'? Kamar akan dilepas kembali.'))return;
+  const r=await run($('bdSave'),()=>authed('adminUpdateBookingStatus',currentCode,st),'Status booking diperbarui.');
+  if(r){applySnapshot(r);$('bookingDialog').close()}
+});
+
+// ---------- Booking manual ----------
+$('addManualBooking').addEventListener('click',()=>{
+  $('mType').innerHTML=(db.roomTypes||[]).map(t=>`<option>${esc(t)}</option>`).join('');
+  $('manualForm').reset();$('mGuests').value=2;$('manualFeedback').textContent='';
+  $('mIn').min=db.today;$('mOut').min=db.today;
+  $('manualDialog').showModal();
+});
+$('mIn').addEventListener('change',()=>{const d=new Date($('mIn').value+'T12:00:00');d.setDate(d.getDate()+1);const m=d.toISOString().slice(0,10);$('mOut').min=m;if($('mOut').value&&$('mOut').value<m)$('mOut').value=m});
+$('manualCancel').addEventListener('click',()=>$('manualDialog').close());
+$('manualForm').addEventListener('submit',async e=>{
+  e.preventDefault();$('manualFeedback').textContent='';
+  const btn=$('manualSave');btn.disabled=true;
+  try{
+    const r=await authed('adminCreateBooking',{name:$('mName').value,phone:$('mPhone').value,type:$('mType').value,guests:Number($('mGuests').value),checkIn:$('mIn').value,checkOut:$('mOut').value,markPaid:$('mPaid').checked});
+    applySnapshot(r);$('manualDialog').close();toast('Booking manual dibuat.');
+  }catch(err){$('manualFeedback').textContent=err.message}
+  finally{btn.disabled=false}
+});
+
+// ---------- Kamar ----------
+$('editRoom').addEventListener('change',fillRoomForm);
+$('saveRoom').addEventListener('click',async()=>{
+  const payload={id:$('editRoom').value,name:$('editName').value,type:$('editType').value,price:Number($('editPrice').value),capacity:Number($('editCapacity').value),status:$('editStatus').value,facilities:$('editFacilities').value};
+  const r=await run($('saveRoom'),()=>authed('adminSaveRoom',payload));
+  if(r){applySnapshot(r.snapshot);$('roomFeedback').textContent=r.warning||'Data kamar tersimpan di Google Sheets.';toast('Data kamar tersimpan.')}
+});
+$('resetRooms').addEventListener('click',async()=>{
+  if(!confirm('Reset semua kamar ke data awal (14 kamar, harga & status awal)? Booking tidak dihapus.'))return;
+  const r=await run($('resetRooms'),()=>authed('adminResetRooms'),'Data kamar direset.');if(r)applySnapshot(r.snapshot);
+});
+$('bookingSearch').addEventListener('input',renderBookings);$('bookingFilter').addEventListener('change',renderBookings);$('paymentFilter').addEventListener('change',renderPayments);
+
+// ---------- Pengaturan ----------
+$('saveSettings').addEventListener('click',async()=>{
+  const r=await run($('saveSettings'),()=>authed('adminSaveSettings',{bank:$('bankName').value,accountNumber:$('accountNumber').value,accountName:$('accountName').value,deadline:Number($('deadline').value)}));
+  if(r){applySnapshot(r.snapshot);$('settingsFeedback').textContent='Pengaturan tersimpan. Rekening langsung dipakai pada halaman pembayaran tamu.';toast('Pengaturan tersimpan.')}
+});
+$('saveAdmin').addEventListener('click',async()=>{
+  const r=await run($('saveAdmin'),()=>authed('adminChangeCredentials',$('curPassword').value,$('newUsername').value,$('newPassword').value));
+  if(r){applySnapshot(r.snapshot);['curPassword','newUsername','newPassword'].forEach(i=>$(i).value='');$('adminFeedback').textContent='Akun diperbarui.';toast('Akun admin diperbarui.')}
+  else $('adminFeedback').textContent='';
+});
+
+// ---------- Ekspor CSV ----------
+function csvCell(v){let s=String(v??'');if(/^[=+\-@\t\r]/.test(s))s="'"+s;return '"'+s.replace(/"/g,'""')+'"'}
+$('exportHistory').addEventListener('click',()=>{
+  const arr=db.bookings.filter(b=>['Selesai','Dibatalkan'].includes(b.status));
+  const lines=[['Kode','Nama','Kamar','Check-in','Check-out','Total','Status'],...arr.map(b=>[b.code,b.name,b.room,b.checkin,b.checkout,b.total,b.status])];
+  const csv='\ufeff'+lines.map(r=>r.map(csvCell).join(',')).join('\r\n');
+  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8;'}));a.download='riwayat-booking-grand-hotel.csv';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+});
+</script></body></html>
